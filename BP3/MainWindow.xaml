@@ -1,0 +1,58 @@
+﻿<!-- MainWindow.xaml -->
+<Window x:Class="RC5WPFApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="RC5 Шифрування (варіант 1)" Height="500" Width="650"
+        WindowStartupLocation="CenterScreen">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="RC5 Шифрування Файлів" FontSize="20" FontWeight="Bold" 
+                   HorizontalAlignment="Center" Margin="0,0,0,10"/>
+
+        <StackPanel Grid.Row="1" Margin="0,5,0,5">
+            <GroupBox Header="Парольна фраза" Margin="0,5">
+                <PasswordBox x:Name="PasswordBox" Margin="5"/>
+            </GroupBox>
+
+            <GroupBox Header="Вхідний файл" Margin="0,5">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox x:Name="InputFileTextBox" IsReadOnly="True" Margin="5"/>
+                    <Button Grid.Column="1" Content="Обрати" Click="BrowseInput_Click" Margin="5"/>
+                </Grid>
+            </GroupBox>
+
+            <GroupBox Header="Вихідний файл" Margin="0,5">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox x:Name="OutputFileTextBox" IsReadOnly="True" Margin="5"/>
+                    <Button Grid.Column="1" Content="Обрати" Click="BrowseOutput_Click" Margin="5"/>
+                </Grid>
+            </GroupBox>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+                <Button Content="Зашифрувати" Background="#4CAF50" Foreground="White" 
+                        Padding="15,8" Click="EncryptButton_Click" Margin="5"/>
+                <Button Content="Розшифрувати" Background="#F44336" Foreground="White" 
+                        Padding="15,8" Click="DecryptButton_Click" Margin="5"/>
+                <Button Content="Очистити" Background="#757575" Foreground="White" 
+                        Padding="15,8" Click="ClearButton_Click" Margin="5"/>
+            </StackPanel>
+        </StackPanel>
+
+        <StatusBar Grid.Row="2" Background="#E0E0E0">
+            <TextBlock x:Name="StatusTextBlock" Text="Готово до роботи" Margin="5"/>
+        </StatusBar>
+    </Grid>
+</Window>
