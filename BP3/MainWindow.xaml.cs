@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows;
 using RC5Encryption;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace RC5WPFApp
 {
@@ -186,6 +187,18 @@ namespace RC5WPFApp
             PasswordBox.Clear();
             StatusTextBlock.Text = "Поля очищено";
         }
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        // 🔹 Дозволяє перетягувати вікно за будь-яке місце
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ButtonState == MouseButtonState.Pressed)
+                this.DragMove();
+        }
+
 
         protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
         {
